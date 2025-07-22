@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>오늘의 뉴스</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- 기본 & 애니메이션 설정 --- */
+        :root {
+            --bg-color: rgb(52, 68, 124);
+            --surface-color: #f5f3f3;
+            --primary-color: #ffc983;
+            --secondary-color: #bb86fc;
+            --text-color: #ffffff;
+            --subtext-color: #ffffff;
+            --border-color: rgba(176, 165, 165, 0.546);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- 전체 페이지 스타일 --- */
+        body {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.8;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* --- 반응형 영상 컨테이너 --- */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 비율 */
+            height: 0;
+            overflow: hidden;
+            width: 100%;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+
+        /* --- 메인 컨테이너 --- */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            background: var(--surface-color);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            animation: fadeIn 1s ease-out;
+        }
+
+        /* --- 헤더 --- */
+
+        /* === HEADING STYLE #5 === */
+        .five h1 {
+        text-align: center;
+        font-size: 22px;
+        font-weight: 700; color:#202020;
+        text-transform: uppercase;
+        word-spacing: 1px; letter-spacing:2px;
+        }
+        .five h1 span {
+        margin-top: 40px;
+        text-transform: none;
+        font-size:.75em;
+        font-weight: normal;
+        font-style: italic; font-family: "Playfair Display","Bookman",serif;
+        color:#999; letter-spacing:-0.005em; word-spacing:1px;
+        letter-spacing:none;
+        }
+        .five h1:before {
+        position: absolute;
+        left: 0;
+        bottom: 38px;
+        width: 60px;
+        height: 4px;
+        content: "";
+        left: 50%;
+        margin-left: -30px;
+        background-color: #dfdfdf;
+        }
+
+        header h1 {
+            font-size: 3em;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- 네비게이션 바 --- */
+        nav {
+            background-color: rgb(52, 68, 124);
+            backdrop-filter: blur(5px);
+            padding: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 15px;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* --- 메인 콘텐츠 & 카드 레이아웃 --- */
+        main {
+            padding: 2.5rem;
+            display: grid;
+            gap: 2.5rem;
+        }
+
+        section {
+            animation: fadeIn 0.5s ease-out forwards;
+            opacity: 0;
+        }
+        section:nth-child(1) { animation-delay: 0.2s; }
+        section:nth-child(2) { animation-delay: 0.4s; }
+        section:nth-child(3) { animation-delay: 0.6s; }
+        
+
+        /* --- 기사 카드 디자인 --- */
+        article {
+            background-color: var(--bg-color);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        article:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.7);
+        }
+
+        article h2 {
+            font-size: 2em;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        article h2::before {
+            content: '⏵';
+            margin-right: 10px;
+            color: var(--secondary-color);
+        }
+
+        article p {
+            font-size: 1.1em;
+            color: var(--subtext-color);
+            font-weight: 300;
+        }
+
+        article img, article video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border: 1px solid var(--border-color);
+            opacity: 0.9;
+            transition: opacity 0.3s ease;
+        }
+
+        article:hover img, article:hover video {
+            opacity: 1;
+        }
+        
+        video {
+            width: 100%;
+        }
+
+        /* --- 푸터 --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9em;
+            color: var(--subtext-color);
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+                    
+        <div class="five">
+        <h1>오 늘 의  뉴 스
+            <br>
+            <span>2025.07.22</span>
+        </h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#society">사회</a></li>
+                <li><a href="#economy">경제</a></li>
+                <li><a href="#sports">스포츠</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="society">
+                <article>
+                    <h2>독감 유행, 개인 위생 관리 철저해야</h2>
+                    <p>최근 독감이 빠르게 확산하면서 보건 당국이 개인 위생 관리를 철저히 할 것을 당부했습니다. 특히 손 씻기와 마스크 착용이 중요합니다.</p>
+                    <img src="https://cdn.jhealthmedia.joins.com/news/photo/202501/29435_30957_3545.jpg" alt="손 씻는 이미지">
+                </article>
+            </section>
+
+            <section id="economy">
+                <article>
+                    <h2>증권 시장, 연일 상승세 마감</h2>
+                    <p>국내 증권 시장이 외국인과 기관의 순매수에 힘입어 연일 상승세로 장을 마감했습니다. 전문가들은 당분간 긍정적인 흐름이 이어질 것으로 전망합니다.</p>
+                </article>
+            </section>
+
+            <section id="sports">
+                <article>
+                    <h2>손흥민, 환상적인 골로 팀 승리 이끌어</h2>
+                    <p>토트넘의 손흥민 선수가 환상적인 중거리 슛으로 결승골을 터뜨리며 팀의 승리를 이끌었습니다. 아래 영상에서 하이라이트를 확인하세요.</p>
+
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/oonOlhXVGow?si=esydInGxBX9mfUyS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    </div>
+
+                </article>
+            </section>
+        </main>
+        
+        <footer>
+            <p>© 2025 SKALA 뉴스.</p>
+        </footer>
+    </div>
+
+</body>
+</html>
