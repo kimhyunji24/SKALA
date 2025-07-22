@@ -1,0 +1,26 @@
+:root {
+  overflow: hidden; /* hides any part of the sun below the horizon */
+  background-color: lightblue;
+  display: flex;
+  justify-content: center; /* centers the sun in the background */
+}
+
+.sun {
+  background-color: yellow;
+  border-radius: 50%; /* 모서리를 둥글게 */
+  height: 50vh; /* 뷰포트의 크기로 원형을 만듭니다 */
+  aspect-ratio: 1 / 1; /* 가로 세로 비율을 1:1로 설정하여 원형 유지 */
+  /* duration, timing function, delay, iteration count, direction, fill mode */
+  animation: 4s linear 0s infinite alternate sun-rise; 
+}
+
+@keyframes sun-rise {
+  from {
+    /* pushes the sun down past the viewport */
+    transform: translateY(100vh);
+  }
+  to {
+    /* returns the sun to its default position */
+    transform: translateY(0);
+  }
+}

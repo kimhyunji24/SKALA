@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>flex-basis 비교</title>
+  <style>
+    .wrapper {
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      border: 2px solid #ccc;
+      margin-top: 10px;
+      flex-flow: row wrap;
+      gap: 10px; /* 항목 간의 간격 */
+    }
+
+    .box {
+      background-color: #222;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    /* 두 번째 예시에서만 flex-basis 적용 */
+    .flex-basis {
+      flex-basis: 150px; /* 플렉스 항목의 기본 크기 */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 첫 번째 예시 (flex-basis 없음) -->
+  <div class="wrapper">
+    <h3>flex-basis 없음</h3>
+    <div class="container">
+      <div class="box">가나다라마</div>
+      <div class="box">가나다라마바사</div>
+      <div class="box">ABCDE</div>
+    </div>
+  </div>
+
+  <!-- 두 번째 예시 (flex-basis: 150px 적용) -->
+  <div class="wrapper">
+    <h3>flex-basis: 150px 적용</h3>
+    <div class="container">
+      <div class="box flex-basis">가나다라마</div>
+      <div class="box flex-basis">가나다라마바사</div>
+      <div class="box flex-basis">ABCDE</div>
+    </div>
+  </div>
+
+</body>
+</html>

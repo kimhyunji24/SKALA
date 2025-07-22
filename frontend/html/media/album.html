@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>나의 여행 앨범 🎵</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    audio {
+      display: block;
+      margin: 0 auto 0.5rem;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    li {
+      margin-bottom: 2rem;
+    }
+    figure {
+      margin: 0;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    figcaption {
+      text-align: center;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #555;
+    }
+    .download-link {
+      display: block;
+      text-align: center;
+      margin-top: 0.3rem;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>나의 여행 앨범 🎵</h1>
+
+  <!-- 오디오 플레이어 -->
+  <audio controls preload="none">
+    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+    브라우저가 오디오 요소를 지원하지 않습니다.
+  </audio>
+  <a class="download-link" href="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" download>
+    ⬇️ 음악 파일 다운로드
+  </a>
+
+  <ul>
+    <!-- 바르셀로나 파밀리아(사그라다 파밀리아) -->
+    <li>
+      <figure>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/0/0c/Sagrada_Familia_01.jpg"
+           download="sagrada_familia.jpg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Sagrada_Familia_01.jpg"
+               alt="파밀리아 대성당">
+        </a>
+        <figcaption>바르셀로나 파밀리아 대성당</figcaption>
+      </figure>
+    </li>
+
+    <!-- 로마 콜로세움 -->
+    <li>
+      <figure>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg"
+           download="colosseum.jpg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/de/Colosseo_2020.jpg"
+               alt="로마 콜로세움">
+        </a>
+        <figcaption>로마 콜로세움</figcaption>
+      </figure>
+    </li>
+
+    <!-- 시드니 오페라 하우스 -->
+    <li>
+      <figure>
+        <a href="https://upload.wikimedia.org/wikipedia/commons/4/40/Sydney_Opera_House_Sails.jpg"
+           download="sydney_opera_house.jpg">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/40/Sydney_Opera_House_Sails.jpg"
+               alt="오페라 하우스">
+        </a>
+        <figcaption>시드니 오페라 하우스</figcaption>
+      </figure>
+    </li>
+  </ul>
+</body>
+</html>
