@@ -1,0 +1,40 @@
+  <!DOCTYPE html>
+  <html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CSS Grid Layout</title>
+    <style>
+      /* 그리드 컨테이너에서 열과 행 지정하기 */
+
+      .container {
+        /* display: block; */
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+        gap: 10px 30px ;
+
+      }
+      .items{
+        border: 1px solid #222;
+        padding:10px;      
+        font-size: 20px;
+        text-align: center;
+        flex-wrap: wrap;
+  
+      }   
+      .items:nth-child(even){
+        background-color:#ffc400;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="items">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque reprehenderit tempore animi unde aut magni omnis quidem voluptas, cumque, facere ipsam ea voluptates hic ipsum repellat officiis perspiciatis aperiam at?</div>
+      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eius modi, distinctio obcaecati natus sed, assumenda labore quam corporis veniam libero hic dolore sequi quo sit error magnam incidunt! Nesciunt!</div>
+      <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et minus cum aspernatur minima ratione dolorem repellat quia at libero! Sunt alias ex dignissimos, maxime doloremque dolores rerum commodi dolore quia!</div>
+      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus aliquam tempora nulla non expedita a labore vitae, modi maxime quia, odio rem fuga quam quod quasi dolor! Esse, excepturi.</div>
+      <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate nostrum veniam blanditiis consectetur doloremque. Ex eos nam dignissimos porro, odio aspernatur voluptate praesentium ducimus voluptas similique enim, veniam expedita quisquam.</div>
+      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore assumenda quidem veniam officia obcaecati incidunt fugiat? Repudiandae obcaecati neque dolorum, reiciendis, ipsum, dolor rerum soluta incidunt quam voluptatibus dolorem. Ad?</div>
+    </div>
+  </body>
+  </html>

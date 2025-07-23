@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        section p {color:navy}
+        section >p {color:navy} 
+        /* > 자식선택자 :section : 부모, p : 자식 */
+        h1 + p {color:rgb(0, 93, 17)}
+        h2 ~ p {color:rgb(255, 15, 139)}
+        /* 형제 선택자 ~ : 앞 요소 다음에 오는 모든 형제 요소에 적용 */
+        a[href] {
+            background: yellowgreen;
+            border : 1px solid #ccc
+        }
+        
+        a[target="_blank"] {
+        padding-right:30px; /* 오른쪽에 30px 여백 */
+        background:url(images/newwindow.png) no-repeat
+        center right; /* 배경 이미지 지정 */
+        }
+        
+        .example-section {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+
+        .example-section h2 {
+            color: #3498db;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* 1. :link - 방문하지 않은 링크 */
+        a:link {
+            color: #007bff; /* 파란색 */
+            text-decoration: none; /* 밑줄 없음 */
+            font-weight: bold;
+        }
+
+        /* 2. :visited - 방문한 링크 */
+        a:visited {
+            color: #6c757d; /* 회색 (방문했음을 나타냄) */
+            text-decoration: none;
+        }
+
+        /* 3. :hover - 마우스 오버 시 (링크, 버튼, 입력 필드 공통) */
+        a:hover, button:hover, input:hover {
+            color: #0056b3; /* 링크 색상 더 진하게 */
+            background-color: #e9f5ff; /* 배경색 살짝 변경 */
+            text-decoration: underline; /* 링크 밑줄 다시 표시 */
+            cursor: pointer; /* 마우스 커서 변경 */
+        }
+        button:hover {
+            background-color: #28a4c2; /* 버튼 배경색 변경 */
+            transform: translateY(-2px); /* 살짝 위로 이동 */
+        }
+        input:hover {
+            border-color: #92bceb; /* 입력 필드 테두리 변경 */
+        }
+
+        /* 4. :active - 활성화 (클릭 중) */
+        a:active, button:active, input:active {
+            color: #003d80; /* 링크 색상 아주 진하게 */
+            background-color: #cce7ff; /* 배경색 더 진하게 */
+            transform: translateY(1px); /* 살짝 아래로 눌린 효과 */
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1); /* 눌린 효과를 위한 안쪽 그림자 */
+        }
+        button:active {
+            background-color: #1f778d; /* 버튼 배경색 변경 */
+            transform: translateY(0); /* 눌린 효과 */
+        }
+
+        /* 5. :focus - 초점 (탭 키 이동 또는 클릭으로 활성화) */
+        input:focus, button:focus, a:focus {
+            outline: none; /* 기본 아웃라인 제거 */
+            border-color: #007bff; /* 테두리 색상 강조 */
+            box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25); /* 파란색 아웃라인 그림자 */
+            background-color: #f0f8ff; /* 배경색 살짝 변경 */
+        }
+
+        /* 버튼 및 입력 필드 기본 스타일 */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out; /* 부드러운 전환 효과 */
+        }
+
+        input[type="text"] {
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 250px;
+            transition: all 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <ul>
+        <ul><a>메인 투어 : </a></ul>
+        <li><a href="#">메뉴 1</a></li>
+        <li><a href="#">메뉴 2</a></li>
+        <li><a href="#">메뉴 3</a></li>
+        </ul>
+        <h1>패키지 여행 요금</h1>
+        <p>각 여행 국가 및 도시마다 가격이 다릅니다</p>
+        <div>
+            <p>괌 : 600,000원 (3박 4일)</p>
+            <p>나트랑 : 490,000원 (3박 4일)</p>
+        </div>
+
+        
+        <ul>
+        <li><a href="xxx" target="_blank">HTML</a></li>
+        <li><a href="yyy">CSS Selector Level 3</a></li>
+        <li><a href="zzz">미디어쿼리</a></li>
+        </ul>
+    </section>
+    <h2>여행가고싶어요</h2>
+    <p>집에 가고싶을지도...</p>
+
+
+    <h1>사용자 동작에 반응하는 가상 클래스 선택자 예시</h1>
+
+    <div class="example-section">
+        <h2>🔗 링크 (<code>:link</code>, <code>:visited</code>, <code>:hover</code>, <code>:active</code>, <code>:focus</code>)</h2>
+        <p>
+            이것은 <a href="https://www.google.com" target="_blank">Google (방문 안 했을 경우 :link, 방문 시 :visited)</a> 로 연결됩니다.
+        </p>
+        <p>
+            이것은 <a href="https://example.com/visited-page" target="_blank">방문한 적이 있는 링크처럼 보이는 예시</a>입니다. (실제 방문 여부는 브라우저 기록에 따라 다릅니다.)
+        </p>
+        <p>
+            <a href="javascript:void(0);" aria-label="가상 링크" style="display: inline-block; padding: 5px 0;">이것은 단순한 가상 링크입니다.</a>
+        </p>
+        <p>
+            링크 위에 마우스를 올리거나(<code>:hover</code>), 클릭하는 동안(<code>:active</code>), 탭 키로 이동하여 선택했을 때(<code>:focus</code>) 스타일이 변하는 것을 확인해보세요.
+        </p>
+    </div>
+
+    <div class="example-section">
+        <h2>🖱️ 버튼 (<code>:hover</code>, <code>:active</code>, <code>:focus</code>)</h2>
+        <p>
+            <button type="button">여기를 클릭하거나 마우스를 올려보세요</button>
+        </p>
+        <p>
+            버튼 위에 마우스를 올리거나(<code>:hover</code>), 클릭하는 동안(<code>:active</code>), 탭 키로 이동하여 선택했을 때(<code>:focus</code>) 스타일이 변하는 것을 확인해보세요.
+        </p>
+    </div>
+
+    <div class="example-section">
+        <h2>⌨️ 입력 필드 (<code>:hover</code>, <code>:focus</code>)</h2>
+        <p>
+            <label for="myInput">이름을 입력하세요:</label>
+            <input type="text" id="myInput" placeholder="여기를 클릭하거나 탭해보세요">
+        </p>
+        <p>
+            입력 필드 위에 마우스를 올리거나(<code>:hover</code>), 클릭하거나 탭 키로 이동하여 초점을 맞췄을 때(<code>:focus</code>) 스타일이 변하는 것을 확인해보세요.
+        </p>
+    </div>
+</body>
+</html>
