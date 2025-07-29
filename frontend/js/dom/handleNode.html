@@ -9,11 +9,32 @@
     <p id="old">기존 문장</p>
   </div>
 
-  <button onclick="addNode()">노드 추가</button>
+  <button id='myBtn'>클릭/더블클릭</button>
   <button onclick="removeNode()">노드 제거</button>
   <button onclick="replaceNode()">노드 교체</button>
 
   <script>
+    const btn = document.getElementById('myBtn');
+    let clickTimer = null;
+
+    btn.addEventListener("dblclick", function() {
+      clearTimeout(clickTimer); // 단일 클릭 실행 취소
+      clickTimer = null;
+      alert('더블클릭 ?');
+    });
+
+    btn.addEventListener("click", function () {
+      // 클릭 후 일정 시간 기다려서 더블클릭 여부 확인
+      if (clickTimer) return;
+
+      clickTimer = setTimeout(() => {
+        alert("클릭 알림!");
+        addNode();
+        replaceNode();
+        clickTimer = null;
+      }, 250); // 250ms 안에 두 번째 클릭이 들어오면 dblclick으로 판단됨
+    });
+
     function addNode() {
       const newElement = document.createElement("p");         // <p> 요소 생성
       newElement.textContent = "추가된 문장";                 // 텍스트 설정

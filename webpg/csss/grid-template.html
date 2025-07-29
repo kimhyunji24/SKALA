@@ -10,31 +10,64 @@
       .container {
         /* display: block; */
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(100px, 2fr));
+        margin-top: 100px;
+        grid-template-columns: repeat(3,3);
         gap: 10px 30px ;
+        grid-template-areas: 
+        "box1 box2 box3"
+        "box4 box5 box6"
+        "box7 box8 box9"
+        ;
 
       }
-      .items{
-        border: 1px solid #222;
-        padding:10px;      
-        font-size: 20px;
-        text-align: center;
-        flex-wrap: wrap;
-  
-      }   
-      .items:nth-child(even){
-        background-color:#ffc400;
+      /* 그리드 라인을 사용해 배치하기 */
+      .box1 {
+        background-color:#3689ff;
+        padding: 5px;
+        grid-column: 1 /4 ; 
+        /* grid-column: 1 / -1; */
+        /* grid-row: 1 / 2; */
+        grid-row-start: 1; 
+        padding: 30px;
+      }
+      .box2 {
+        background-color:#00cf12;
+        grid-column-start: 1;
+        grid-row: 2 / 4;  /* 두 번째 행부터 마지막 행까지 */
+        padding: 30px;
+
+      }
+      .box3 {
+        background-color:#ff9019;
+        grid-column: 2 / 4;  /* 두 번째 열부터 마지막 열까지 */
+        grid-row-start: 2;  /* 두 번째 행부터 시작 */        
+        padding: 30px;
+
+        }
+      .box4 {
+        background-color:#ffd000;
+        grid-column-start: 2/4;  /* 세 번째 열부터 시작 */
+        grid-row-start: 3;  /* 세 번째 행부터 시작 */ 
+        padding: 30px;
+
+      }
+      .box5 {
+        background-color:#ff3f3f;
+        grid-column-start: 3; /* 세 번째 열 */
+        grid-row-start: 3;  /* 세 번째 행부터 시작 */
+        padding: 30px;
+
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="items">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque reprehenderit tempore animi unde aut magni omnis quidem voluptas, cumque, facere ipsam ea voluptates hic ipsum repellat officiis perspiciatis aperiam at?</div>
-      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta eius modi, distinctio obcaecati natus sed, assumenda labore quam corporis veniam libero hic dolore sequi quo sit error magnam incidunt! Nesciunt!</div>
-      <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et minus cum aspernatur minima ratione dolorem repellat quia at libero! Sunt alias ex dignissimos, maxime doloremque dolores rerum commodi dolore quia!</div>
-      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur voluptatibus aliquam tempora nulla non expedita a labore vitae, modi maxime quia, odio rem fuga quam quod quasi dolor! Esse, excepturi.</div>
-      <div class="items">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptate nostrum veniam blanditiis consectetur doloremque. Ex eos nam dignissimos porro, odio aspernatur voluptate praesentium ducimus voluptas similique enim, veniam expedita quisquam.</div>
-      <div class="items">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore assumenda quidem veniam officia obcaecati incidunt fugiat? Repudiandae obcaecati neque dolorum, reiciendis, ipsum, dolor rerum soluta incidunt quam voluptatibus dolorem. Ad?</div>
+      
+      <div class="box1">BOX 1</div>
+      <div class="box2">BOX 2</div>
+      <div class="box3">BOX 3</div>
+      <div class="box4">BOX 4</div>
+      <div class="box5">BOX 5</div>
     </div>
   </body>
   </html>

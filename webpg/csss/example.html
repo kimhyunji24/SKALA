@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>해 움직이는 애니메이션</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(to top, #87ceeb 0%, #f0f8ff 100%);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .sun {
+      position: absolute;
+      left: 50%;
+      width: 100px;
+      height: 100px;
+      background: radial-gradient(circle, #FFD700, #FFA500);
+      border-radius: 50%;
+      transform: translateX(-50%);
+      animation: sunMove 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes sunMove {
+      0% {
+        top: 80%;
+      }
+      50% {
+        top: 20%;
+      }
+      100% {
+        top: 80%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="sun"></div>
+
+</body>
+</html>
