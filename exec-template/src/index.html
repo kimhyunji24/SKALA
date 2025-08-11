@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Demo</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+            transition: background-color 0.3s ease;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        #color-box {
+            width: 200px;
+            height: 200px;
+            background-color: #4A90E2; /* 초기 색상 */
+            border: 2px solid #ccc;
+            border-radius: 15px;
+            margin: 20px auto;
+            transition: background-color 0.3s ease; /* 부드러운 색상 전환 효과 */
+        }
+
+        #change-color-btn {
+            padding: 12px 25px;
+            font-size: 16px;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        #change-color-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>클릭하면 색이 바뀌어요!</h1>
+        <div id="color-box"></div>
+        <button id="change-color-btn">색상 변경</button>
+    </div>
+
+    <script>
+        const colorBox = document.getElementById('color-box');
+        const changeColorBtn = document.getElementById('change-color-btn');
+
+        // 랜덤한 16진수 색상 코드를 생성하는 함수
+        function getRandomHexColor() {
+        const letters = '0123456789ABCDEF';
+        let color = '#';
+        for (let i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+
+        // 버튼에 'click' 이벤트 리스너를 추가합니다.
+        changeColorBtn.addEventListener('click', function() {
+        // 버튼이 클릭될 때마다 새로운 랜덤 색상을 생성합니다.
+        const newColor = getRandomHexColor();
+        
+        // color-box의 배경색을 새로운 색상으로 변경합니다.
+        colorBox.style.backgroundColor = newColor;
+        });
+    </script>
+</body>
+</html>

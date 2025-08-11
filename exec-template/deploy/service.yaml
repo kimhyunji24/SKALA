@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: sk035-posts-get
+  namespace: skala-practice
+spec:
+  selector:
+    app: sk035-posts-get
+  ports:
+    - name: http
+      protocol: TCP
+      port: 8080
+      targetPort: 80
+  type: ClusterIP
+
+
